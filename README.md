@@ -36,5 +36,5 @@ friends, streamers, etc.). Use responsibly:
   or screaming
 
 ## Built with
-- [Language/framework you used, e.g. C#, Python, Electron]
+- [ Python ]
 - Coded with [0g.ai](https://0g.ai)
