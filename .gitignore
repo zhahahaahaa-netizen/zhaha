@@ -8,6 +8,7 @@ build/
 dist/
 *.egg-info/
 .eggs/
+*.spec
 
 # Virtual environments
 venv/
@@ -29,3 +30,13 @@ Thumbs.db
 # Config / state files your app generates at runtime
 config.json
 settings.json
+sidecar/settings.json
+
+# Environment variables / secrets - NEVER commit these
+.env
+sidecar/.env
+*.env
+
+# Node.js dependencies (huge, regenerated via npm install)
+node_modules/
+sidecar/node_modules/
