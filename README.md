@@ -1,40 +1,53 @@
 # zhaha
-A Windows desktop app that randomly jumpscares you at unpredictable intervals (10-30 min, 30-60 min, or 1-2 hours). Download the .exe and run it. Built for pranks, dares, and testing your friends' nerves. Coded with 0g.ai.
-# Jumpscare App
+A Windows app that jumpscares you at random intervals, with settings synced to 0G decentralized storage. Built for the 0G Zero Cup.
 
-A lightweight Windows application that lurks in the background and 
-jumpscares you at completely random, unpredictable times.
+# 🎃 Jumpscare App
 
-> Coded with [0g.ai](https://0g.ai)
+A Windows desktop app that jumpscares you at a random, unpredictable 
+interval — short (10–30 min), medium (30–60 min), or long (1–2 hours). 
+Runs quietly in the system tray until it doesn't.
 
-## How it works
+Built for the [0G Zero Cup](https://0g.ai/arena/zero-cup).
 
-The app picks a random interval from one of three ranges:
-- **Short fuse:** 10–30 minutes
-- **Medium fuse:** 30–60 minutes
-- **Long fuse:** 1–2 hours
+## ⚡ 0G Integration
 
-When the timer runs out, it triggers a sudden jumpscare (image/sound) 
-on screen — no warning, no countdown.
+Every time you change a setting (time range, enable/disable, startup), 
+the app pushes your settings file to **0G's decentralized storage 
+network** in the background. This isn't decorative — the app calls a 
+real 0G testnet transaction every time, verifiable on-chain via the 
+returned root hash / transaction hash.
+
+This is handled by a small Node.js sidecar (`sidecar/sync.js`) that the 
+Python app calls automatically — you don't need to run it manually.
 
 ## Features
-- Runs quietly in the background / system tray
-- Random timing so you can never predict the next scare
-- Customizable scare image and sound (optional)
-- Lightweight, minimal resource usage
-
-## Installation
-Download the `.exe` from the [Releases](#) page and run it — no installer needed.
+- Runs in the system tray
+- Fully random scare timing — no countdown, no warning
+- Optional run-on-Windows-startup
+- Settings synced to 0G decentralized storage on every change
 
 ## ⚠️ Disclaimer
-This software is intended for entertainment purposes only (pranking 
-friends, streamers, etc.). Use responsibly:
-- Don't install it on someone else's PC without their consent
-- Not recommended for people with heart conditions, anxiety disorders, 
-  epilepsy, or photosensitivity
-- The author is not responsible for spilled coffee, dropped phones, 
-  or screaming
+Entertainment/prank purposes only. Don't install on someone else's PC 
+without their consent. Not recommended for anyone with heart conditions, 
+anxiety disorders, epilepsy, or photosensitivity.
+
+## 🛠️ Running it yourself (for judges / developers)
+
+This app needs **Node.js** installed (for the 0G sync) in addition to 
+running the Windows `.exe`.
+
+1. Download `JumpscareInstaller.exe` and the `sidecar.zip` from the 
+   [Releases](../../releases) page, and extract `sidecar.zip` into the 
+   same folder as the `.exe`.
+2. Install [Node.js](https://nodejs.org) if you don't have it.
+3. Open a terminal in the `sidecar` folder and run:
+4. 4. Copy `env.example` to `.env` inside `sidecar`, and fill in:
+   - Your own wallet's private key (testnet only — get test tokens at 
+     [faucet.0g.ai](https://faucet.0g.ai))
+   - The default RPC/indexer URLs are fine to leave as-is
+5. Run `Jumpscare.exe`. Change any setting from the tray menu — this 
+   triggers a real push to 0G storage in the background.
 
 ## Built with
-- [ Python ]
-- Coded with [0g.ai](https://0g.ai)
+Python, Tkinter, Pillow, pystray, Node.js, `@0gfoundation/0g-storage-ts-sdk`
+Coded with [0g.ai](https://0g.ai)
