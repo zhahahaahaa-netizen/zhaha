@@ -1,0 +1,16 @@
+{
+  "name": "jumpscare-0g-sidecar",
+  "version": "1.0.0",
+  "description": "Node.js sidecar that syncs Jumpscare app settings to 0G decentralized storage (0G-KV)",
+  "main": "sync.js",
+  "type": "module",
+  "scripts": {
+    "push": "node sync.js push",
+    "pull": "node sync.js pull"
+  },
+  "dependencies": {
+    "@0gfoundation/0g-storage-ts-sdk": "^1.2.10",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.0"
+  }
+}
